@@ -10,7 +10,7 @@ namespace Musictify.Models
         public int AlbumID { get; set; }
         public string AlbumName { get; set; }
         public string ImageUrl { get; set; }
-        public int? ReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
         public double? Rate { get; set; }
         public int SingerID { get; set; }
         public Singer Singer { get; set; }

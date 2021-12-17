@@ -2,7 +2,7 @@
 
 namespace Musictify.Data.Migrations
 {
-    public partial class Temel : Migration
+    public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,13 +10,13 @@ namespace Musictify.Data.Migrations
                 name: "Category",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    CategoryID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.ID);
+                    table.PrimaryKey("PK_Category", x => x.CategoryID);
                 });
 
             migrationBuilder.CreateTable(
@@ -26,6 +26,9 @@ namespace Musictify.Data.Migrations
                     SingerID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SingerName = table.Column<string>(nullable: true),
+                    Birthday = table.Column<string>(nullable: true),
+                    SingerAge = table.Column<int>(nullable: false),
+                    SingerDescription = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -41,7 +44,7 @@ namespace Musictify.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AlbumName = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
-                    ReleaseDate = table.Column<int>(nullable: true),
+                    ReleaseDate = table.Column<string>(nullable: true),
                     Rate = table.Column<double>(nullable: true),
                     SingerID = table.Column<int>(nullable: false),
                     CategoryID = table.Column<int>(nullable: false)
@@ -53,7 +56,7 @@ namespace Musictify.Data.Migrations
                         name: "FK_Album_Category_CategoryID",
                         column: x => x.CategoryID,
                         principalTable: "Category",
-                        principalColumn: "ID",
+                        principalColumn: "CategoryID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Album_Singer_SingerID",

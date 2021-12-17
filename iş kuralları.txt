@@ -1,0 +1,21 @@
+Her sanatçıdan sadece bir tane bulunur.
+Her producerdan sadece bir tane bulunur.
+Bir sanatçının birden fazla albümü olabilir.
+Bir producer birden fazla albümü yönetebilir.
+Bir albümde çok	sayıda şarkı vardır.
+Bir şarkıda birden fazla sanatçı bulunabilir.
+Bir şarkıda birden fazla producer bulunabilir.
+Bir albümde birden fazla producer bulunabilir.
+Sanatçılar aynı zamanda producer olabilir.
+Bir albüm birden fazla sanatçının olabilir.
+Bir konser tek bir stadyumda gerçekleşebilir.
+Bir konserde birden fazla sanatçı yer alabilir.
+Bir konserde birden fazla bilet satılır.
+
+
+ilişkiler
+Singer-song
+singer-album
+producer-song
+producer-album
+album-category->tek

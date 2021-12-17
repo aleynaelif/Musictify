@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Musictify.Models
 {
-    public class ProducerAlbum
+    public class ProducerSongs
     {
-        public int ProducerAlbumID { get; set; }
-        public int AlbumID { get; set; }
-        public Album Album { get; set; }
+        public int ProducerSongsID { get; set; }
         public int ProducerID { get; set; }
         public Producer Producer { get; set; }
+        public int SongsID { get; set; }
+        public Songs Songs { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using Musictify.Data;
 namespace Musictify.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211216204145_Temel")]
-    partial class Temel
+    [Migration("20211217124435_Third")]
+    partial class Third
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -240,24 +240,19 @@ namespace Musictify.Data.Migrations
                     b.Property<double?>("Rate")
                         .HasColumnType("float");
 
-                    b.Property<int?>("ReleaseDate")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SingerID")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("AlbumID");
 
                     b.HasIndex("CategoryID");
-
-                    b.HasIndex("SingerID");
 
                     b.ToTable("Album");
                 });
 
             modelBuilder.Entity("Musictify.Models.Category", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("CategoryID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -265,9 +260,80 @@ namespace Musictify.Data.Migrations
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("CategoryID");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Musictify.Models.Producer", b =>
+                {
+                    b.Property<int>("ProducerID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProducerAge")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProducerDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProducerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProducerID");
+
+                    b.ToTable("Producer");
+                });
+
+            modelBuilder.Entity("Musictify.Models.ProducerAlbum", b =>
+                {
+                    b.Property<int>("ProducerAlbumID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AlbumID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProducerID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProducerAlbumID");
+
+                    b.HasIndex("AlbumID");
+
+                    b.HasIndex("ProducerID");
+
+                    b.ToTable("ProducerAlbum");
+                });
+
+            modelBuilder.Entity("Musictify.Models.ProducerSongs", b =>
+                {
+                    b.Property<int>("ProducerSongsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProducerID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SongsID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProducerSongsID");
+
+                    b.HasIndex("ProducerID");
+
+                    b.HasIndex("SongsID");
+
+                    b.ToTable("ProducerSongs");
                 });
 
             modelBuilder.Entity("Musictify.Models.Singer", b =>
@@ -277,7 +343,16 @@ namespace Musictify.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SingerAge")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SingerDescription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SingerName")
@@ -286,6 +361,82 @@ namespace Musictify.Data.Migrations
                     b.HasKey("SingerID");
 
                     b.ToTable("Singer");
+                });
+
+            modelBuilder.Entity("Musictify.Models.SingerAlbum", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AlbumID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SingerID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrackNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AlbumID");
+
+                    b.HasIndex("SingerID");
+
+                    b.ToTable("SingerAlbum");
+                });
+
+            modelBuilder.Entity("Musictify.Models.SingerSongs", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("SingerID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SongsID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SingerID");
+
+                    b.HasIndex("SongsID");
+
+                    b.ToTable("SingerSongs");
+                });
+
+            modelBuilder.Entity("Musictify.Models.Songs", b =>
+                {
+                    b.Property<int>("SongsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AlbumID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Collab")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lyrics")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("MinuteLength")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SongsName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SongsID");
+
+                    b.HasIndex("AlbumID");
+
+                    b.ToTable("Songs");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -346,10 +497,73 @@ namespace Musictify.Data.Migrations
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Musictify.Models.ProducerAlbum", b =>
+                {
+                    b.HasOne("Musictify.Models.Album", "Album")
+                        .WithMany()
+                        .HasForeignKey("AlbumID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Musictify.Models.Producer", "Producer")
+                        .WithMany()
+                        .HasForeignKey("ProducerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Musictify.Models.ProducerSongs", b =>
+                {
+                    b.HasOne("Musictify.Models.Producer", "Producer")
+                        .WithMany()
+                        .HasForeignKey("ProducerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Musictify.Models.Songs", "Songs")
+                        .WithMany()
+                        .HasForeignKey("SongsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Musictify.Models.SingerAlbum", b =>
+                {
+                    b.HasOne("Musictify.Models.Album", "Album")
+                        .WithMany()
+                        .HasForeignKey("AlbumID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Musictify.Models.Singer", "Singer")
                         .WithMany()
                         .HasForeignKey("SingerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Musictify.Models.SingerSongs", b =>
+                {
+                    b.HasOne("Musictify.Models.Singer", "Singer")
+                        .WithMany()
+                        .HasForeignKey("SingerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Musictify.Models.Songs", "Songs")
+                        .WithMany()
+                        .HasForeignKey("SongsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Musictify.Models.Songs", b =>
+                {
+                    b.HasOne("Musictify.Models.Album", "Album")
+                        .WithMany()
+                        .HasForeignKey("AlbumID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

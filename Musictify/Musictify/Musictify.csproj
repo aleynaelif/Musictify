@@ -2,8 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-Musictify-0E06D7CE-16FC-43EC-A48D-0518AD196770</UserSecretsId>
+    <UserSecretsId>aspnet-Musictify-03C36EFE-B874-475E-A482-E8AFA15CD870</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20211217113443_Second.cs" />
+    <Compile Remove="Data\Migrations\20211217113443_Second.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211217115145_Third.cs" />
+    <Compile Remove="Data\Migrations\20211217115145_Third.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211217115347_Third.cs" />
+    <Compile Remove="Data\Migrations\20211217115347_Third.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.19" />

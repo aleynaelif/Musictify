@@ -11,6 +11,7 @@ namespace Musictify.Models
         public string SingerName { get; set; }
         public DateTime Birthday { get; set; }
         public int SingerAge { get; set; }
+        public string SingerDescription { get; set; }
         public string ImageUrl { get; set; }
     }
 }

@@ -12,8 +12,6 @@ namespace Musictify.Models
         public string ImageUrl { get; set; }
         public DateTime ReleaseDate { get; set; }
         public double? Rate { get; set; }
-        public int SingerID { get; set; }
-        public Singer Singer { get; set; }
         public int CategoryID { get; set; }
         public Category Category { get; set; }
 

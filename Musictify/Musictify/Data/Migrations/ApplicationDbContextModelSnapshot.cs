@@ -15,7 +15,7 @@ namespace Musictify.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.19")
+                .HasAnnotation("ProductVersion", "3.1.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -326,6 +326,28 @@ namespace Musictify.Data.Migrations
                     b.ToTable("ConcertSinger");
                 });
 
+            modelBuilder.Entity("Musictify.Models.ConcertTickets", b =>
+                {
+                    b.Property<int>("ConcertTicketsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ConcertID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TicketsID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ConcertTicketsID");
+
+                    b.HasIndex("ConcertID");
+
+                    b.HasIndex("TicketsID");
+
+                    b.ToTable("ConcertTickets");
+                });
+
             modelBuilder.Entity("Musictify.Models.Playlist", b =>
                 {
                     b.Property<int>("PlaylistID")
@@ -366,78 +388,7 @@ namespace Musictify.Data.Migrations
 
                     b.HasIndex("SongsID");
 
-                    b.ToTable("PLaylistSongs");
-                });
-
-            modelBuilder.Entity("Musictify.Models.Producer", b =>
-                {
-                    b.Property<int>("ProducerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Birthday")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProducerAge")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProducerDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProducerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ProducerID");
-
-                    b.ToTable("Producer");
-                });
-
-            modelBuilder.Entity("Musictify.Models.ProducerAlbum", b =>
-                {
-                    b.Property<int>("ProducerAlbumID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AlbumID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProducerID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProducerAlbumID");
-
-                    b.HasIndex("AlbumID");
-
-                    b.HasIndex("ProducerID");
-
-                    b.ToTable("ProducerAlbum");
-                });
-
-            modelBuilder.Entity("Musictify.Models.ProducerSongs", b =>
-                {
-                    b.Property<int>("ProducerSongsID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ProducerID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SongsID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProducerSongsID");
-
-                    b.HasIndex("ProducerID");
-
-                    b.HasIndex("SongsID");
-
-                    b.ToTable("ProducerSongs");
+                    b.ToTable("PlaylistSongs");
                 });
 
             modelBuilder.Entity("Musictify.Models.Shop", b =>
@@ -502,9 +453,6 @@ namespace Musictify.Data.Migrations
                     b.Property<int>("SingerID")
                         .HasColumnType("int");
 
-                    b.Property<int>("TrackNumber")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
 
                     b.HasIndex("AlbumID");
@@ -552,10 +500,10 @@ namespace Musictify.Data.Migrations
                     b.Property<string>("Lyrics")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("MinuteLength")
-                        .HasColumnType("float");
-
                     b.Property<string>("SongsName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YoutubeLink")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SongsID");
@@ -630,9 +578,6 @@ namespace Musictify.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("TicketPricingID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TotalTicketCapacity")
                         .HasColumnType("int");
 
                     b.HasKey("TicketsID");
@@ -747,41 +692,26 @@ namespace Musictify.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Musictify.Models.ConcertTickets", b =>
+                {
+                    b.HasOne("Musictify.Models.Concert", "Concert")
+                        .WithMany()
+                        .HasForeignKey("ConcertID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Musictify.Models.Tickets", "Tickets")
+                        .WithMany()
+                        .HasForeignKey("TicketsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Musictify.Models.PlaylistSongs", b =>
                 {
                     b.HasOne("Musictify.Models.Playlist", "Playlist")
                         .WithMany()
                         .HasForeignKey("PlaylistID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Musictify.Models.Songs", "Songs")
-                        .WithMany()
-                        .HasForeignKey("SongsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Musictify.Models.ProducerAlbum", b =>
-                {
-                    b.HasOne("Musictify.Models.Album", "Album")
-                        .WithMany()
-                        .HasForeignKey("AlbumID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Musictify.Models.Producer", "Producer")
-                        .WithMany()
-                        .HasForeignKey("ProducerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Musictify.Models.ProducerSongs", b =>
-                {
-                    b.HasOne("Musictify.Models.Producer", "Producer")
-                        .WithMany()
-                        .HasForeignKey("ProducerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

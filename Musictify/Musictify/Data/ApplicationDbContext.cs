@@ -23,11 +23,9 @@ namespace Musictify.Data
         public DbSet<CD> CD { get; set; }
         public DbSet<Concert> Concert { get; set; }
         public DbSet<ConcertSinger> ConcertSinger { get; set; }
+        public DbSet<ConcertTickets> ConcertTickets { get; set; }
         public DbSet<Playlist> Playlist { get; set; }
-        public DbSet<PlaylistSongs> PLaylistSongs { get; set; }
-        public DbSet<Producer> Producer { get; set; }
-        public DbSet<ProducerAlbum> ProducerAlbum { get; set; }
-        public DbSet<ProducerSongs> ProducerSongs { get; set; }
+        public DbSet<PlaylistSongs> PlaylistSongs { get; set; }
         public DbSet<Shop> Shop { get; set; }
         public DbSet<Singer> Singer { get; set; }
         public DbSet<SingerAlbum> SingerAlbum { get; set; }

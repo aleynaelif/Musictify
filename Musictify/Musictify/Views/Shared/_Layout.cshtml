@@ -6,24 +6,53 @@
     <title>@ViewData["Title"] - Musictify</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Musictify</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger ">
+            <div class="container px-5">
+                <a class="navbar-brand" href="index.html">Musictify</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">Albümler</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Sanatçılar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pricing.html">Çalma Listeleri</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pricing.html">Türler</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Giriş</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Üye Girişi</a>
+                                <a class="dropdown-item" href="#">Kayıt Ol</a>
+
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin Paneli</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Album">Album</a>
+                                <a class="dropdown-item" asp-controller="Category">Category</a>
+                                <a class="dropdown-item" asp-controller="CD">CD</a>
+                                <a class="dropdown-item" asp-controller="Concert">Concert</a>
+                                <a class="dropdown-item" asp-controller="ConcertSinger">ConcertSinger</a>
+                                <a class="dropdown-item" asp-controller="ConcertTickets">ConcertTickets</a>
+                                <a class="dropdown-item" asp-controller="Playtist">Playtist</a>
+                                <a class="dropdown-item" asp-controller="PlaytistSongs">PlaytistSongs</a>
+                                <a class="dropdown-item" asp-controller="Shop">Shop</a>
+                                <a class="dropdown-item" asp-controller="Singer">Singer</a>
+                                <a class="dropdown-item" asp-controller="SingerAlbum">SingerAlbum</a>
+                                <a class="dropdown-item" asp-controller="SingerSongs">SingerSongs</a>
+                                <a class="dropdown-item" asp-controller="Songs">Songs</a>
+                                <a class="dropdown-item" asp-controller="Stadium">Stadium</a>
+                                <a class="dropdown-item" asp-controller="TicketPricing">TicketPricing</a>
+                                <a class="dropdown-item" asp-controller="Tickets">Tickets</a>
+                                <a class="dropdown-item" asp-controller="Vinyl">Vinyl</a>
+
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -12,6 +12,5 @@ namespace Musictify.Models
         public Album Album { get; set; }
         public int SingerID { get; set; }
         public Singer Singer { get; set; }
-        public int TrackNumber { get; set; }
     }
 }

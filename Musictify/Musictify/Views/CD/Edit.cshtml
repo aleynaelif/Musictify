@@ -1,0 +1,44 @@
+﻿@model Musictify.Models.CD
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CD</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CDID" />
+            <div class="form-group">
+                <label asp-for="CDName" class="control-label"></label>
+                <input asp-for="CDName" class="form-control" />
+                <span asp-validation-for="CDName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CDPrice" class="control-label"></label>
+                <input asp-for="CDPrice" class="form-control" />
+                <span asp-validation-for="CDPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CDImageURL" class="control-label"></label>
+                <input asp-for="CDImageURL" class="form-control" />
+                <span asp-validation-for="CDImageURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

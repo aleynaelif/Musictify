@@ -1,0 +1,42 @@
+﻿@model Musictify.Models.Stadium
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Stadium</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StadiumName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StadiumName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StadiumCountry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StadiumCountry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StadiumCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StadiumCity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StadiumAdress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StadiumAdress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.StadiumID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

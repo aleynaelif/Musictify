@@ -11,7 +11,6 @@ namespace Musictify.Models
         public DateTime PurchaseDate { get; set; }
         public int TicketPricingID { get; set; }
         public TicketPricing TicketPricing { get; set; }
-        public int TotalTicketCapacity { get; set; }
         public int SeatRow { get; set; }
         public int SeatColumn { get; set; }
 

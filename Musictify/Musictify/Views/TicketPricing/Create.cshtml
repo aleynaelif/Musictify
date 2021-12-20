@@ -1,0 +1,48 @@
+﻿@model Musictify.Models.TicketPricing
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TicketPricing</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VipPrice" class="control-label"></label>
+                <input asp-for="VipPrice" class="form-control" />
+                <span asp-validation-for="VipPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BackstagePrice" class="control-label"></label>
+                <input asp-for="BackstagePrice" class="form-control" />
+                <span asp-validation-for="BackstagePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EarlyBirdPrice" class="control-label"></label>
+                <input asp-for="EarlyBirdPrice" class="form-control" />
+                <span asp-validation-for="EarlyBirdPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NormalPrice" class="control-label"></label>
+                <input asp-for="NormalPrice" class="form-control" />
+                <span asp-validation-for="NormalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

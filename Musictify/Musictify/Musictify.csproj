@@ -6,20 +6,41 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\img\**" />
+    <Content Remove="wwwroot\img\**" />
+    <EmbeddedResource Remove="wwwroot\img\**" />
+    <None Remove="wwwroot\img\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\Migrations\20211217113443_Second.cs" />
     <Compile Remove="Data\Migrations\20211217113443_Second.Designer.cs" />
     <Compile Remove="Data\Migrations\20211217115145_Third.cs" />
     <Compile Remove="Data\Migrations\20211217115145_Third.Designer.cs" />
     <Compile Remove="Data\Migrations\20211217115347_Third.cs" />
     <Compile Remove="Data\Migrations\20211217115347_Third.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211220175212_Sixth.cs" />
+    <Compile Remove="Data\Migrations\20211220175212_Sixth.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211220175334_Sixth.cs" />
+    <Compile Remove="Data\Migrations\20211220175334_Sixth.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211220175716_Sixth.cs" />
+    <Compile Remove="Data\Migrations\20211220175716_Sixth.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211220175826_Sixth.cs" />
+    <Compile Remove="Data\Migrations\20211220175826_Sixth.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211220180159_Sixth.cs" />
+    <Compile Remove="Data\Migrations\20211220180159_Sixth.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.19" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.19" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
 </Project>

@@ -49,8 +49,8 @@ namespace Musictify.Controllers
         // GET: Shop/Create
         public IActionResult Create()
         {
-            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDID");
-            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylID");
+            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDName");
+            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylName");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace Musictify.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDID", shop.CDID);
-            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylID", shop.VinylID);
+            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDName", shop.CDID);
+            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylName", shop.VinylID);
             return View(shop);
         }
 
@@ -85,8 +85,8 @@ namespace Musictify.Controllers
             {
                 return NotFound();
             }
-            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDID", shop.CDID);
-            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylID", shop.VinylID);
+            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDName", shop.CDID);
+            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylName", shop.VinylID);
             return View(shop);
         }
 
@@ -122,8 +122,8 @@ namespace Musictify.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDID", shop.CDID);
-            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylID", shop.VinylID);
+            ViewData["CDID"] = new SelectList(_context.CD, "CDID", "CDName", shop.CDID);
+            ViewData["VinylID"] = new SelectList(_context.Vinyl, "VinylID", "VinylName", shop.VinylID);
             return View(shop);
         }
 

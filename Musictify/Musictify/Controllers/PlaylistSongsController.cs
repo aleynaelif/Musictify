@@ -49,8 +49,8 @@ namespace Musictify.Controllers
         // GET: PlaylistSongs/Create
         public IActionResult Create()
         {
-            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistID");
-            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsID");
+            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistName");
+            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsName");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace Musictify.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistID", playlistSongs.PlaylistID);
-            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsID", playlistSongs.SongsID);
+            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistName", playlistSongs.PlaylistID);
+            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsName", playlistSongs.SongsID);
             return View(playlistSongs);
         }
 
@@ -85,8 +85,8 @@ namespace Musictify.Controllers
             {
                 return NotFound();
             }
-            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistID", playlistSongs.PlaylistID);
-            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsID", playlistSongs.SongsID);
+            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistName", playlistSongs.PlaylistID);
+            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsName", playlistSongs.SongsID);
             return View(playlistSongs);
         }
 
@@ -122,8 +122,8 @@ namespace Musictify.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistID", playlistSongs.PlaylistID);
-            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsID", playlistSongs.SongsID);
+            ViewData["PlaylistID"] = new SelectList(_context.Playlist, "PlaylistID", "PlaylistName", playlistSongs.PlaylistID);
+            ViewData["SongsID"] = new SelectList(_context.Songs, "SongsID", "SongsName", playlistSongs.SongsID);
             return View(playlistSongs);
         }
 

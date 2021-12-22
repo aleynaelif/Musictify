@@ -50,7 +50,7 @@ namespace Musictify.Controllers
         public IActionResult Create()
         {
             ViewData["ConcertID"] = new SelectList(_context.Concert, "ConcertID", "ConcertID");
-            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerID");
+            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerName");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace Musictify.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ConcertID"] = new SelectList(_context.Concert, "ConcertID", "ConcertID", concertSinger.ConcertID);
-            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerID", concertSinger.SingerID);
+            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerName", concertSinger.SingerID);
             return View(concertSinger);
         }
 
@@ -86,7 +86,7 @@ namespace Musictify.Controllers
                 return NotFound();
             }
             ViewData["ConcertID"] = new SelectList(_context.Concert, "ConcertID", "ConcertID", concertSinger.ConcertID);
-            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerID", concertSinger.SingerID);
+            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerName", concertSinger.SingerID);
             return View(concertSinger);
         }
 
@@ -123,7 +123,7 @@ namespace Musictify.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ConcertID"] = new SelectList(_context.Concert, "ConcertID", "ConcertID", concertSinger.ConcertID);
-            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerID", concertSinger.SingerID);
+            ViewData["SingerID"] = new SelectList(_context.Singer, "SingerID", "SingerName", concertSinger.SingerID);
             return View(concertSinger);
         }
 

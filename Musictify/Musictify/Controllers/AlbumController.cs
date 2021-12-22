@@ -48,7 +48,7 @@ namespace Musictify.Controllers
         // GET: Album/Create
         public IActionResult Create()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID");
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Musictify.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", album.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName", album.CategoryID);
             return View(album);
         }
 
@@ -82,7 +82,7 @@ namespace Musictify.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", album.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName", album.CategoryID);
             return View(album);
         }
 
@@ -118,7 +118,7 @@ namespace Musictify.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryID", album.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Category, "CategoryID", "CategoryName", album.CategoryID);
             return View(album);
         }
 

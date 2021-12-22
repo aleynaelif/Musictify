@@ -40,8 +40,8 @@
                                 <a class="dropdown-item" asp-controller="Concert">Concert</a>
                                 <a class="dropdown-item" asp-controller="ConcertSinger">ConcertSinger</a>
                                 <a class="dropdown-item" asp-controller="ConcertTickets">ConcertTickets</a>
-                                <a class="dropdown-item" asp-controller="Playtist">Playtist</a>
-                                <a class="dropdown-item" asp-controller="PlaytistSongs">PlaytistSongs</a>
+                                <a class="dropdown-item" asp-controller="Playlist">Playlist</a>
+                                <a class="dropdown-item" asp-controller="PlaylistSongs">PlaylistSongs</a>
                                 <a class="dropdown-item" asp-controller="Shop">Shop</a>
                                 <a class="dropdown-item" asp-controller="Singer">Singer</a>
                                 <a class="dropdown-item" asp-controller="SingerAlbum">SingerAlbum</a>
@@ -65,11 +65,21 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Musictify - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="bg-danger py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; 2021 - Musictify</div></div>
+                <div class="col-auto">
+                    <a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Terms</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Contact</a>
+                </div>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -48,7 +48,7 @@ namespace Musictify.Controllers
         // GET: Concert/Create
         public IActionResult Create()
         {
-            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumID");
+            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumName");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Musictify.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumID", concert.StadiumID);
+            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumName", concert.StadiumID);
             return View(concert);
         }
 
@@ -82,7 +82,7 @@ namespace Musictify.Controllers
             {
                 return NotFound();
             }
-            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumID", concert.StadiumID);
+            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumName", concert.StadiumID);
             return View(concert);
         }
 
@@ -118,7 +118,7 @@ namespace Musictify.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumID", concert.StadiumID);
+            ViewData["StadiumID"] = new SelectList(_context.Stadium, "StadiumID", "StadiumName", concert.StadiumID);
             return View(concert);
         }
 

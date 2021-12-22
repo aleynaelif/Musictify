@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Musictify.Data;
 using Musictify.Models;
 using System;
 using System.Collections.Generic;
@@ -11,16 +13,17 @@ namespace Musictify.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var db = _context.Album.Include(f => f.Category);
+            return View(db.ToList());
         }
 
         public IActionResult Privacy()

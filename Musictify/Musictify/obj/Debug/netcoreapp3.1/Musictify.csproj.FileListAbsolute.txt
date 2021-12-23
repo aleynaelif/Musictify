@@ -248,3 +248,5 @@ C:\Users\aleyn\Desktop\WebProgrammingProject\Musictify\Musictify\obj\Debug\netco
 C:\Users\aleyn\Desktop\WebProgrammingProject\Musictify\Musictify\obj\Debug\netcoreapp3.1\Razor\Views\Songs\Details.cshtml.g.cs
 C:\Users\aleyn\Desktop\WebProgrammingProject\Musictify\Musictify\obj\Debug\netcoreapp3.1\Razor\Views\Songs\Edit.cshtml.g.cs
 C:\Users\aleyn\Desktop\WebProgrammingProject\Musictify\Musictify\obj\Debug\netcoreapp3.1\Razor\Views\Songs\Index.cshtml.g.cs
+C:\Users\aleyn\Desktop\WebProgrammingProject\Musictify\Musictify\obj\Debug\netcoreapp3.1\Razor\Views\AlbumPage\Index.cshtml.g.cs
+C:\Users\aleyn\Desktop\WebProgrammingProject\Musictify\Musictify\obj\Debug\netcoreapp3.1\Razor\Views\SingerPage\Index.cshtml.g.cs

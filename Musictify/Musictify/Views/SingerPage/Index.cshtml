@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Musictify.Models.Singer>
+
+<style>
+    body {
+        font-family: Helvetica, sans-serif;
+        background-color: #252526;
+        color: rgb(202 207 187);
+    }
+</style>
+<section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="text-center mb-5">
+            <h1 class="h1 fw-bolder text">Sanatçılar</h1>
+            <br />
+        </div>
+        <div class="row gx-6">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="position-relative mb-5">
+                        <img class="img-fluid rounded-3 mb-3" src=@Html.DisplayFor(modelItem => item.ImageUrl) width="400" height="400">
+                        <center><a class="h4 text-white-50 fw-bolder text-decoration-none link-dark stretched-link" href="#!">@Html.DisplayFor(modelItem => item.SingerName)</a></center>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>
+
+

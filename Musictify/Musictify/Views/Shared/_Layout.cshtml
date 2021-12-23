@@ -11,17 +11,17 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-danger ">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success ">
             <div class="container px-5">
                 <a class="navbar-brand" href="index.html">Musictify</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">Albümler</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Sanatçılar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pricing.html">Çalma Listeleri</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pricing.html">Türler</a></li>
+                        <li class="nav-item"><a class="nav-link" href="HomePage.html">Anasayfa</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="AlbumPage">Albümler</a></li>
+                        <li class="nav-item"><a class="nav-link"asp-controller="SingerPage">Sanatçılar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="PlaylistPage.html">Çalma Listeleri</a></li>
+                        <li class="nav-item"><a class="nav-link" href="CategoryPage.html">Türler</a></li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Giriş</a>
@@ -65,7 +65,7 @@
         </main>
     </div>
 
-    <footer class="bg-danger py-4 mt-auto">
+    <footer class="bg-success py-4 mt-auto">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; 2021 - Musictify</div></div>

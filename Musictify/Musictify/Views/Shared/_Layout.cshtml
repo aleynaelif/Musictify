@@ -17,18 +17,23 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+<<<<<<< Updated upstream
                         <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">Albümler</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Sanatçılar</a></li>
                         <li class="nav-item"><a class="nav-link" href="pricing.html">Çalma Listeleri</a></li>
                         <li class="nav-item"><a class="nav-link" href="pricing.html">Türler</a></li>
+=======
+                        <li class="nav-item"><a class="nav-link" href="HomePage.html">Anasayfa</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="AlbumPage">Albümler</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="SingerPage">Sanatçılar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="PlaylistPage.html">Çalma Listeleri</a></li>
+                        <li class="nav-item"><a class="nav-link" href="CategoryPage.html">Türler</a></li>
+>>>>>>> Stashed changes
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Giriş</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Üye Girişi</a>
-                                <a class="dropdown-item" href="#">Kayıt Ol</a>
+                        <li class="nav-item"><a class="nav-link" href="CategoryPage.html">@User.IsInRole("Users")</a></li>
 
+<<<<<<< Updated upstream
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -51,9 +56,40 @@
                                 <a class="dropdown-item" asp-controller="TicketPricing">TicketPricing</a>
                                 <a class="dropdown-item" asp-controller="Tickets">Tickets</a>
                                 <a class="dropdown-item" asp-controller="Vinyl">Vinyl</a>
+=======
+>>>>>>> Stashed changes
 
-                            </div>
-                        </li>
+
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin Paneli</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-controller="Album">Album</a>
+                                        <a class="dropdown-item" asp-controller="Category">Category</a>
+                                        <a class="dropdown-item" asp-controller="CD">CD</a>
+                                        <a class="dropdown-item" asp-controller="Concert">Concert</a>
+                                        <a class="dropdown-item" asp-controller="ConcertSinger">ConcertSinger</a>
+                                        <a class="dropdown-item" asp-controller="ConcertTickets">ConcertTickets</a>
+                                        <a class="dropdown-item" asp-controller="Playlist">Playlist</a>
+                                        <a class="dropdown-item" asp-controller="PlaylistSongs">PlaylistSongs</a>
+                                        <a class="dropdown-item" asp-controller="Shop">Shop</a>
+                                        <a class="dropdown-item" asp-controller="Singer">Singer</a>
+                                        <a class="dropdown-item" asp-controller="SingerAlbum">SingerAlbum</a>
+                                        <a class="dropdown-item" asp-controller="SingerSongs">SingerSongs</a>
+                                        <a class="dropdown-item" asp-controller="Songs">Songs</a>
+                                        <a class="dropdown-item" asp-controller="Stadium">Stadium</a>
+                                        <a class="dropdown-item" asp-controller="TicketPricing">TicketPricing</a>
+                                        <a class="dropdown-item" asp-controller="Tickets">Tickets</a>
+                                        <a class="dropdown-item" asp-controller="Vinyl">Vinyl</a>
+                                    </div>
+                                </li>
+                        }
+
+
+                        <partial name="_LoginPartial" />
+
                     </ul>
                 </div>
             </div>

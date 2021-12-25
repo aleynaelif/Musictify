@@ -19,18 +19,13 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="HomePage.html">Anasayfa</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="AlbumPage">Albümler</a></li>
-                        <li class="nav-item"><a class="nav-link"asp-controller="SingerPage">Sanatçılar</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="SingerPage">Sanatçılar</a></li>
                         <li class="nav-item"><a class="nav-link" href="PlaylistPage.html">Çalma Listeleri</a></li>
                         <li class="nav-item"><a class="nav-link" href="CategoryPage.html">Türler</a></li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Giriş</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Üye Girişi</a>
-                                <a class="dropdown-item" href="#">Kayıt Ol</a>
 
-                            </div>
-                        </li>
+
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin Paneli</a>
                             <div class="dropdown-menu">
@@ -54,6 +49,10 @@
 
                             </div>
                         </li>
+
+
+                        <partial name="_LoginPartial" />
+
                     </ul>
                 </div>
             </div>

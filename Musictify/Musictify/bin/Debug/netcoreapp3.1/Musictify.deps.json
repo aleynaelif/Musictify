@@ -304,6 +304,14 @@
         "runtime": {
           "Musictify.dll": {}
         },
+        "resources": {
+          "en/Musictify.resources.dll": {
+            "locale": "en"
+          },
+          "tr/Musictify.resources.dll": {
+            "locale": "tr"
+          }
+        },
         "compile": {
           "Musictify.dll": {}
         }

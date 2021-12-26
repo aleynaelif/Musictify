@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,37 +25,42 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" asp-controller="Home">Anasayfa</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="AlbumPage">Albümler</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="SingerPage">Sanatçılar</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="SongsPage">Şarkılar</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home">@localizer["text1"]</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="AlbumPage">@localizer["text2"]</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="SingerPage">@localizer["text3"]</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="SongsPage">@localizer["text4"]</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="PlaylistPage">@localizer["text5"]</a></li>
 
-                        <li class="nav-item"><a class="nav-link" href="PlaylistPage.html">Çalma Listeleri</a></li>
-                        <li class="nav-item"><a class="nav-link" href="CategoryPage.html">Türler</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@localizer["text6"]</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-controller="Album">Album</a>
+                                        <a class="dropdown-item" asp-controller="Category">Category</a>
+                                        <a class="dropdown-item" asp-controller="CD">CD</a>
+                                        <a class="dropdown-item" asp-controller="Concert">Concert</a>
+                                        <a class="dropdown-item" asp-controller="ConcertSinger">ConcertSinger</a>
+                                        <a class="dropdown-item" asp-controller="ConcertTickets">ConcertTickets</a>
+                                        <a class="dropdown-item" asp-controller="Playlist">Playlist</a>
+                                        <a class="dropdown-item" asp-controller="PlaylistSongs">PlaylistSongs</a>
+                                        <a class="dropdown-item" asp-controller="Shop">Shop</a>
+                                        <a class="dropdown-item" asp-controller="Singer">Singer</a>
+                                        <a class="dropdown-item" asp-controller="SingerAlbum">SingerAlbum</a>
+                                        <a class="dropdown-item" asp-controller="SingerSongs">SingerSongs</a>
+                                        <a class="dropdown-item" asp-controller="Songs">Songs</a>
+                                        <a class="dropdown-item" asp-controller="Stadium">Stadium</a>
+                                        <a class="dropdown-item" asp-controller="TicketPricing">TicketPricing</a>
+                                        <a class="dropdown-item" asp-controller="Tickets">Tickets</a>
+                                        <a class="dropdown-item" asp-controller="Vinyl">Vinyl</a>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin Paneli</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Album">Album</a>
-                                <a class="dropdown-item" asp-controller="Category">Category</a>
-                                <a class="dropdown-item" asp-controller="CD">CD</a>
-                                <a class="dropdown-item" asp-controller="Concert">Concert</a>
-                                <a class="dropdown-item" asp-controller="ConcertSinger">ConcertSinger</a>
-                                <a class="dropdown-item" asp-controller="ConcertTickets">ConcertTickets</a>
-                                <a class="dropdown-item" asp-controller="Playlist">Playlist</a>
-                                <a class="dropdown-item" asp-controller="PlaylistSongs">PlaylistSongs</a>
-                                <a class="dropdown-item" asp-controller="Shop">Shop</a>
-                                <a class="dropdown-item" asp-controller="Singer">Singer</a>
-                                <a class="dropdown-item" asp-controller="SingerAlbum">SingerAlbum</a>
-                                <a class="dropdown-item" asp-controller="SingerSongs">SingerSongs</a>
-                                <a class="dropdown-item" asp-controller="Songs">Songs</a>
-                                <a class="dropdown-item" asp-controller="Stadium">Stadium</a>
-                                <a class="dropdown-item" asp-controller="TicketPricing">TicketPricing</a>
-                                <a class="dropdown-item" asp-controller="Tickets">Tickets</a>
-                                <a class="dropdown-item" asp-controller="Vinyl">Vinyl</a>
+                                    </div>
+                                </li>
+                            }
+                        }
 
-                            </div>
-                        </li>
 
 
                         <partial name="_LoginPartial" />
@@ -75,13 +82,6 @@
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; 2021 - Musictify</div></div>
-                <div class="col-auto">
-                    <a class="link-light small" href="#!">Privacy</a>
-                    <span class="text-white mx-1">&middot;</span>
-                    <a class="link-light small" href="#!">Terms</a>
-                    <span class="text-white mx-1">&middot;</span>
-                    <a class="link-light small" href="#!">Contact</a>
-                </div>
             </div>
         </div>
     </footer>

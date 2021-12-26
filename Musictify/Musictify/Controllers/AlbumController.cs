@@ -11,7 +11,7 @@ using Musictify.Models;
 
 namespace Musictify.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class AlbumController : Controller
     {
         private readonly ApplicationDbContext _context;

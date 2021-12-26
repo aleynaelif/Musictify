@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<Musictify.Models.Album>
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
-
-    <!-- Latest Albums-->
+<!-- Latest Albums-->
 <section class="py-5">
     <div class="container px-5 my-5">
         <div class="text-center mb-5">
@@ -14,7 +13,7 @@
             {
                 <div class="col-lg-3">
                     <div class="position-relative mb-5 mx-auto">
-                        <img class="img-fluid rounded-3 mb-3" src=@Html.DisplayFor(modelItem => item.ImageUrl) width="300" height="300">
+                        <img class="img-fluid rounded-3 mb-3" src=@item.ImageUrl width="300" height="300">
                         <center><a class="h4 text-white-50 fw-bolder text-decoration-none link-dark stretched-link" asp-action="Details" asp-route-id="@item.AlbumID">@item.AlbumName</a></center>
                     </div>
                 </div>

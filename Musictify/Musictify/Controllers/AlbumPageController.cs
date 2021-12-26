@@ -44,11 +44,5 @@ namespace Musictify.Controllers
 
             return View(album);
         }
-
-
-        private bool AlbumExists(int id)
-        {
-            return _context.Album.Any(e => e.AlbumID == id);
-        }
     }
 }

@@ -1,0 +1,21 @@
+﻿@model Musictify.Models.Playlist
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container px-5 my-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 text-center mb-5">
+            <div class="img-container">
+                <img class="img-fluid rounded-3 mb-3" src=@Html.DisplayFor(model => model.ImageUrl) width="275" height="275">
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8">
+            <div class="member_designation">
+                <h1 style=font-size:75px class="h1 fw-bolder text"> @Html.DisplayFor(model => model.PlaylistName)</h1>
+                <h3>@Html.DisplayFor(model => model.PlaylistDescription)</h3>
+            </div>
+        </div>
+    </div>
+</div>

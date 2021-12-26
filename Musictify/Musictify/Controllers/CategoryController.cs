@@ -26,6 +26,10 @@ namespace Musictify.Controllers
         {
             return View(await _context.Category.ToListAsync());
         }
+        public List<Category> CategoryList()
+        {
+            return _context.Category.ToList();
+        }
 
         // GET: Category/Details/5
         public async Task<IActionResult> Details(int? id)

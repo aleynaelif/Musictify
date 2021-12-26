@@ -32,12 +32,28 @@ namespace Musictify.Controllers
             return View(db.ToList());
         }
 
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var album = await _context.Album
+                .Include(a => a.Category)
+                .FirstOrDefaultAsync(m => m.AlbumID == id);
+            if (album == null)
+            {
+                return NotFound();
+            }
+
+            return View(album);
+        }
 
         public IActionResult Privacy()
         {
             return View();
         }
-
 
         [HttpPost]
         public IActionResult CultureManagement(string culture, string returnUrl)

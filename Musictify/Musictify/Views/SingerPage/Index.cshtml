@@ -14,7 +14,7 @@
                 <div class="col-lg-4">
                     <div class="position-relative mb-5">
                         <img class="img-fluid rounded-3 mb-3" src=@item.ImageUrl . width="400" height="400">
-                        <center><a class="h4 text-white-50 fw-bolder text-decoration-none link-dark stretched-link">@item.SingerName</a></center>
+                        <center><a class="h4 text-white-50 fw-bolder text-decoration-none link-dark stretched-link" asp-action="Details" asp-route-id="@item.SingerID">@item.SingerName</a></center>
                     </div>
                 </div>
             }

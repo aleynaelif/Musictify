@@ -24,6 +24,22 @@ namespace Musictify.Controllers
         {
             return View(await _context.Singer.ToListAsync());
         }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var singer = await _context.Singer
+                .FirstOrDefaultAsync(m => m.SingerID == id);
+            if (singer == null)
+            {
+                return NotFound();
+            }
+
+            return View(singer);
+        }
 
         private bool SingerExists(int id)
         {

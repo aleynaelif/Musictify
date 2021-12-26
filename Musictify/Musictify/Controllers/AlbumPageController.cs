@@ -27,22 +27,18 @@ namespace Musictify.Controllers
         }
 
 
-        public async Task<IActionResult> Details(int? id)
+        public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            List<Album> AlbumName = _context.Album.Where(x => (x.AlbumID == id)).ToList();
+            List<Songs> SongsNames = _context.Songs.ToList();
 
-            var album = await _context.Album
-                .Include(a => a.Category)
-                .FirstOrDefaultAsync(m => m.AlbumID == id);
-            if (album == null)
-            {
-                return NotFound();
-            }
+            var MultipleTable = from a in AlbumName
+                                join s in SongsNames on a.AlbumID equals s.AlbumID into table1
+                                from s in table1.DefaultIfEmpty()
+                                select new AlbumSongs {AlbumDetails=a, SongsDetails = s};
 
-            return View(album);
+            return View(MultipleTable);
+        
         }
     }
 }

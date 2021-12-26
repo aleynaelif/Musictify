@@ -22,35 +22,23 @@ namespace Musictify.Controllers
         {
             return View(await _context.Playlist.ToListAsync());
         }
-        /*public ActionResult Index()
+     
+        public ActionResult Details(int? id)
         {
-            List<Album> AlbumNames = _context.Album.ToList();
+            List<PlaylistSongs> PlaylistSongsNames = _context.PlaylistSongs.Where(x => (x.PlaylistID == id)).ToList();
+            List<SingerSongs> SingerSongsNames = _context.SingerSongs.ToList();
             List<Songs> SongsNames = _context.Songs.ToList();
-            List<Singer> SingerNames = _context.Singer.ToList();
 
-            var MultipleTable = from a in AlbumNames
-                                join so in SongsNames on a.AlbumID equals so.AlbumID into table1
-                                from so in table1.DefaultIfEmpty()
-                                join si in SingerNames on so.SongsID equals si.
-            return View();
-        }*/
-
-        // GET: PlaylistPage/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var playlist = await _context.Playlist
-                .FirstOrDefaultAsync(m => m.PlaylistID == id);
-            if (playlist == null)
-            {
-                return NotFound();
-            }
-
-            return View(playlist);
+            var MultipleTable = from ps in PlaylistSongsNames
+                                join ss in SingerSongsNames on ps.SongsID equals ss.SongsID into table1
+                                from ss in table1.DefaultIfEmpty()
+                                join so in SongsNames on ss.SongsID equals so.SongsID into table2
+                                from so in table2.DefaultIfEmpty()
+                                select new AlbumSingerSongs { PlaylistSongsDetails = ps, SingerSongsDetails = ss, SongsDetails=so};
+            
+            return View(MultipleTable);
         }
+
+
     }
 }

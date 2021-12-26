@@ -1,0 +1,25 @@
+﻿@model Musictify.Models.Songs
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container px-5 my-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 text-center mb-5">
+            <div class="img-container">
+                <img class="img-fluid rounded-3 mb-3" src=@Html.DisplayFor(model => model.Album.ImageUrl) width="275" height="275">
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8">
+            <div class="member_designation">
+                <h1 style=font-size:100px class="h1 fw-bolder text"> @Html.DisplayFor(model => model.SongsName)</h1>
+                <h1 class="h1 fw-bolder text">@Html.DisplayFor(model => model.Album.AlbumName)</h1>
+                <a href=@Html.DisplayFor(model => model.YoutubeLink)>
+                    <img src="https://www.freeiconspng.com/uploads/white-youtube-logo-png-28.png" style="width:100px;height:100px;">
+                </a>
+            </div>
+        </div>
+        <h4>@Html.DisplayFor(model => model.Lyrics)</h4>
+    </div>
+</div>

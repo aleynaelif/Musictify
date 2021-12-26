@@ -25,7 +25,27 @@ namespace Musictify.Controllers
             var applicationDbContext = _context.Album.Include(a => a.Category);
             return View(await applicationDbContext.ToListAsync());
         }
-        
+
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var album = await _context.Album
+                .Include(a => a.Category)
+                .FirstOrDefaultAsync(m => m.AlbumID == id);
+            if (album == null)
+            {
+                return NotFound();
+            }
+
+            return View(album);
+        }
+
+
         private bool AlbumExists(int id)
         {
             return _context.Album.Any(e => e.AlbumID == id);

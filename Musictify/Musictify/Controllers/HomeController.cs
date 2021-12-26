@@ -16,8 +16,6 @@ namespace Musictify.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHtmlLocalizer<HomeController> _localizer;
-        private readonly ILogger<HomeController> _logger;
 
         private readonly ApplicationDbContext _context;
 
@@ -28,9 +26,12 @@ namespace Musictify.Controllers
 
         public IActionResult Index()
         {
-            var db = _context.Album.Include(f => f.Category);
+
+            //var db = _context.Album.Include(f => f.Category);
+            var db = _context.Album.OrderByDescending(x => x.ReleaseDate).Take(4);
             return View(db.ToList());
         }
+
 
         public IActionResult Privacy()
         {
@@ -39,12 +40,12 @@ namespace Musictify.Controllers
 
 
         [HttpPost]
-        public IActionResult CultureManagement(string culture)
+        public IActionResult CultureManagement(string culture, string returnUrl)
         {
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
                 new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
 
-            return RedirectToAction(nameof(Index));
+            return LocalRedirect(returnUrl);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

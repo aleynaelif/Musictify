@@ -8842,19 +8842,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eeren\\.nuget\\packages\\": {}
+    "C:\\Users\\aleyn\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eeren\\Desktop\\WebProgrammingProject\\Musictify\\Musictify\\Musictify.csproj",
+      "projectUniqueName": "C:\\Users\\aleyn\\Desktop\\WebProgrammingProject\\Musictify\\Musictify\\Musictify.csproj",
       "projectName": "Musictify",
-      "projectPath": "C:\\Users\\eeren\\Desktop\\WebProgrammingProject\\Musictify\\Musictify\\Musictify.csproj",
-      "packagesPath": "C:\\Users\\eeren\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eeren\\Desktop\\WebProgrammingProject\\Musictify\\Musictify\\obj\\",
+      "projectPath": "C:\\Users\\aleyn\\Desktop\\WebProgrammingProject\\Musictify\\Musictify\\Musictify.csproj",
+      "packagesPath": "C:\\Users\\aleyn\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aleyn\\Desktop\\WebProgrammingProject\\Musictify\\Musictify\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\eeren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aleyn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

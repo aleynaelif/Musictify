@@ -11,3 +11,7 @@ This projecj includes
 - Entity Framework Core ORM
 - Bootstrap 
 - HTML5, CSS3, Javascript and JQUERY
+
+
+### Aleyna Elif ÖZKAN - B201210387 
+### Ekrem Eren YILMAZ - G181210039 

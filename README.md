@@ -1,6 +1,6 @@
 # Musictify
 
-This projecj includes 
+This project includes 
 
 - Asp.net Core 5 MVC
 - C#

@@ -1,4 +1,4 @@
-# WebProgrammingProject
+# Musictify
 
 
 The main purpose of this project is to ensure that the information learned in the web programming class can be used in a real life problem by students. 
